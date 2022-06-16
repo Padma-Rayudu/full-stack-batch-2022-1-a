@@ -16,8 +16,8 @@
   "production": {
     "username": "postgres",
     "password": "batch1$",
-    "database": "breakprice_production",
+    "database": "breakpriceproduction",
     "host": "64.225.6.89",
-    "dialect":"postgres"
+    "dialect": "postgres"    
   }
 }

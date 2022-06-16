@@ -24,7 +24,7 @@ async function userdata(){
      userdetailsdata.map((user)=>{
         client.messages 
       .create({ 
-         body: 'Hii this is from splitwise application ',  
+         body: 'Greatings of the from splitwise application ',  
          messagingServiceSid:process.env.messagingServiceSid,      
          to: '+91'+user.dataValues.phone 
        }) 
@@ -35,10 +35,10 @@ async function userdata(){
     
 }
       
-// cron.schedule('*/1 * * * *', () => {
+cron.schedule('15 10 * */1 1', () => {
     
-//     userdata(); 
-// });
+    userdata(); 
+});
 
 
 
@@ -49,20 +49,7 @@ async function userdata(){
  app.use('/user',userRouter)
  app.use('/expense',expenseRouter)
  app.use('/group',groupRouter)
-//   cron.schedule('* * * * *', () => {
-// //    const accountSid = 'ACcfb33e8c2fdd14884491f6f2e0d16311'; 
-// // const authToken = '[AuthToken]'; 
-// // const client = require('twilio')(accountSid, authToken); 
- 
-// client.messages 
-//       .create({ 
-//          body: 'Hii this is from splitwise application ',  
-//          messagingServiceSid: 'MG953a4e68808c8358a1e240b9a802764b',      
-//          to: '+918247394596' 
-//        }) 
-//       .then(message => console.log(message.sid)) 
-//       .done();  });
-//console.log("usersss",userdetailsdata)
+
 app.listen(PORT,async()=>{
     console.log("Server running on 5000..");
     await sequelize.authenticate()
