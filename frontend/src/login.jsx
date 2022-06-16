@@ -39,6 +39,7 @@ export default function Login()
             else if(data.message==="success")
             {
               navigate('/otppage')
+             //navigate('/home')
             }
             else
             {

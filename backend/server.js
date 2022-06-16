@@ -15,7 +15,8 @@ const groupRouter=require('./routes/grouproutes')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 const {sequelize}= require('./models')
-const client = require('twilio')('ACcfb33e8c2fdd14884491f6f2e0d16311', '11aa5676fd48db859c6c96b3d2411bf4');
+require('dotenv').config()
+const client = require('twilio')(process.env.accountSID,process.env.authToken);
 const  {Userdetail} = require('./models');
 
 async function userdata(){
@@ -24,7 +25,7 @@ async function userdata(){
         client.messages 
       .create({ 
          body: 'Hii this is from splitwise application ',  
-         messagingServiceSid: 'MG953a4e68808c8358a1e240b9a802764b',      
+         messagingServiceSid:process.env.messagingServiceSid,      
          to: '+91'+user.dataValues.phone 
        }) 
       .then(message => console.log(message.sid)) 
